@@ -1,0 +1,1629 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Babelogger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: [
+                "ui-sans-serif",
+                "system-ui",
+                "-apple-system",
+                "BlinkMacSystemFont",
+                '"Segoe UI"',
+                "Roboto",
+                '"Helvetica Neue"',
+                "Arial",
+                '"Noto Sans"',
+                "sans-serif",
+                '"Apple Color Emoji"',
+                '"Segoe UI Emoji"',
+                '"Segoe UI Symbol"',
+                '"Noto Color Emoji"',
+              ],
+              mono: [
+                "ui-monospace",
+                "SFMono-Regular",
+                "Menlo",
+                "Monaco",
+                "Consolas",
+                '"Liberation Mono"',
+                '"Courier New"',
+                "monospace",
+              ],
+            },
+            colors: {
+              dark: "#111827",
+              light: "#ffffff",
+              medium: "#4b5563",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      :root {
+        --color-dark: #111827; /* Dark Gray-900 */
+        --color-light: #ffffff; /* White */
+        --color-medium: #4b5563; /* Gray-600 */
+      }
+      .bg-dark {
+        background-color: var(--color-dark);
+      }
+      .text-dark {
+        color: var(--color-dark);
+      }
+      .border-dark {
+        border-color: var(--color-dark);
+      }
+      .bg-light {
+        background-color: var(--color-light);
+      }
+      .text-light {
+        color: var(--color-light);
+      }
+      .border-light {
+        border-color: var(--color-light);
+      }
+      .text-medium {
+        color: var(--color-medium);
+      }
+      .shadow-monolith {
+        box-shadow: 4px 4px 0px var(--color-dark);
+      }
+      .shadow-monolith-lg {
+        box-shadow: 8px 8px 0px var(--color-dark);
+      }
+      .shadow-monolith-hover:hover {
+        box-shadow: 6px 6px 0px var(--color-dark);
+        transform: translate(-2px, -2px);
+      }
+      .brutal-btn {
+        border: 2px solid var(--color-dark);
+        box-shadow: 3px 3px 0px var(--color-dark);
+        transition: all 0.1s ease-out;
+      }
+      .brutal-btn:hover {
+        box-shadow: 4px 4px 0px var(--color-dark);
+        transform: translate(-1px, -1px);
+      }
+      .brutal-btn:active {
+        box-shadow: 1px 1px 0px var(--color-dark);
+        transform: translate(2px, 2px);
+      }
+      h1,
+      h2,
+      h3 {
+        font-weight: 900 !important;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-light text-dark font-mono antialiased leading-tight border-t-8 border-dark"
+  >
+    <header
+      class="relative bg-light py-20 md:py-24 border-b-4 border-dark shadow-monolith-lg mx-auto max-w-full px-4"
+    >
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left"
+      >
+        <div class="mb-10 lg:mb-0">
+          <h1
+            class="text-5xl md:text-7xl font-extrabold uppercase tracking-tighter leading-none mb-6 text-dark border-b-4 border-dark pb-4"
+          >
+            Babelogger <br /><span class="text-medium"
+              >An Old Twist with a Modern Stack.</span
+            >
+          </h1>
+          <p
+            class="text-lg md:text-xl text-dark max-w-2xl mx-auto lg:mx-0 mb-8 border-l-4 border-medium pl-4"
+          >
+            The foundational CMS and traffic engineering platform. Manage
+            content, automate media, and secure your presence with raw,
+            uncompromising efficiency.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
+          >
+            <a
+              href="#features"
+              class="inline-block bg-dark text-light font-extrabold py-4 px-8 text-lg brutal-btn uppercase"
+            >
+              Explore Features <i class="fas fa-arrow-down ml-2"></i>
+            </a>
+            <a
+              href="#cta"
+              class="inline-block bg-light text-dark font-extrabold py-4 px-8 text-lg brutal-btn uppercase"
+            >
+              View Demo <i class="fas fa-play-circle ml-2"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <div
+            class="w-full max-w-md h-64 md:h-80 bg-light border-4 border-dark p-6 shadow-monolith-lg flex flex-col items-center justify-center relative overflow-hidden"
+          >
+            <div
+              class="absolute inset-0 grid grid-cols-3 grid-rows-3 border-r border-b border-dark opacity-20"
+            >
+              <div class="border-b border-r border-dark"></div>
+              <div class="border-b border-r border-dark"></div>
+              <div class="border-b border-dark"></div>
+              <div class="border-b border-r border-dark"></div>
+              <div class="border-b border-r border-dark"></div>
+              <div class="border-b border-dark"></div>
+              <div class="border-r border-dark"></div>
+              <div class="border-r border-dark"></div>
+              <div></div>
+            </div>
+            <i
+              class="fas fa-database text-dark text-opacity-80 text-8xl relative z-10 animate-pulse"
+            ></i>
+            <i
+              class="fas fa-code text-medium text-4xl absolute bottom-8 right-8 z-10 rotate-12"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-16 md:py-24">
+      <section id="features" class="mb-20">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-dark text-center mb-12 border-b-4 border-medium pb-4 uppercase"
+        >
+          Critical Capabilities
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-file-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Content Core <span class="text-medium">📝</span>
+            </h3>
+            <p class="text-gray-700">
+              Multiple post types: Images, Videos, Galleries, External Links.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-cloud-upload-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Media Operations <span class="text-medium">📤</span>
+            </h3>
+            <p class="text-gray-700">
+              Robust image/video uploads, auto-thumbnailing, metadata stripping,
+              full-res display.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-exchange-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Traffic Control <span class="text-medium">🤝</span>
+            </h3>
+            <p class="text-gray-700">
+              Integrated traffic exchange, configurable skimming, detailed
+              analytics.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-shield-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              System Security <span class="text-medium">🛡️</span>
+            </h3>
+            <p class="text-gray-700">
+              CSRF/XSS, rate limiting, blacklisting, strict CSP, secure
+              sessions.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-hammer text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Admin Tools <span class="text-medium">⚙️</span>
+            </h3>
+            <p class="text-gray-700">
+              Dashboard, post/submission management, settings, scraper, cache
+              control.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-plus text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Public Submissions <span class="text-medium">📮</span>
+            </h3>
+            <p class="text-gray-700">
+              User-submitted content workflow with admin approval and blacklist
+              integration.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-edit text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Post Management CRUD <span class="text-medium">✏️</span>
+            </h3>
+            <p class="text-gray-700">
+              Comprehensive tools to Create, Read, Update, and Delete all
+              content types efficiently.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-folder text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Category Structuring <span class="text-medium">📁</span>
+            </h3>
+            <p class="text-gray-700">
+              Organize content with custom categories for streamlined navigation
+              and content discovery.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-tags text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Smart Tagging <span class="text-medium">🏷️</span>
+            </h3>
+            <p class="text-gray-700">
+              Enhance content discoverability with a flexible tagging system for
+              precise organization.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-check-circle text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Approval Workflow <span class="text-medium">✅</span>
+            </h3>
+            <p class="text-gray-700">
+              Control content publication with pending and approved statuses,
+              ensuring quality control.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-eye text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Visibility Controls <span class="text-medium">👁️</span>
+            </h3>
+            <p class="text-gray-700">
+              Manage post visibility with public/private, featured, and sticky
+              flags for dynamic display.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-calendar-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Scheduled Publishing <span class="text-medium">⏰</span>
+            </h3>
+            <p class="text-gray-700">
+              Plan your content strategy by scheduling posts for automatic
+              future publication.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-globe text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Browse & Discover <span class="text-medium">🌐</span>
+            </h3>
+            <p class="text-gray-700">
+              Public users can easily navigate content by category, tags, post
+              type, and archive.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-vote-yea text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              User Engagement <span class="text-medium">👍</span>
+            </h3>
+            <p class="text-gray-700">
+              Allow public users to interact with content via 'upvote' and
+              'downvote' functionalities.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-mouse-pointer text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Link Tracking <span class="text-medium">🔗</span>
+            </h3>
+            <p class="text-gray-700">
+              Monitor external link performance with integrated click tracking
+              for plug posts.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-upload text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Robust File Uploads <span class="text-medium">📥</span>
+            </h3>
+            <p class="text-gray-700">
+              Securely upload images and videos with robust Multer integration
+              and file handling.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-hdd text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Temp Upload Storage <span class="text-medium">🗄️</span>
+            </h3>
+            <p class="text-gray-700">
+              Utilizes a temporary directory for raw uploads, ensuring clean
+              processing workflows.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-compress-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Advanced Image Processing <span class="text-medium">🌄</span>
+            </h3>
+            <p class="text-gray-700">
+              Automatic thumbnail generation, configurable formats, quality
+              control, and metadata stripping.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-expand text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              High-Res Image Display <span class="text-medium">🖼️</span>
+            </h3>
+            <p class="text-gray-700">
+              Preserve image quality with direct display of full-resolution
+              images on their dedicated post pages.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-video text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Direct Video Uploads <span class="text-medium">📹</span>
+            </h3>
+            <p class="text-gray-700">
+              Seamlessly upload video files with configurable size limits for
+              rich content.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-images text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Gallery Management <span class="text-medium">📸</span>
+            </h3>
+            <p class="text-gray-700">
+              Create and manage rich image galleries with multiple images and a
+              customizable cover.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-broom text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Automatic File Cleanup <span class="text-medium">🧹</span>
+            </h3>
+            <p class="text-gray-700">
+              Ensures disk space efficiency by automatically deleting associated
+              media files on post removal.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-trash-restore-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Orphaned File Recovery <span class="text-medium">🗑️</span>
+            </h3>
+            <p class="text-gray-700">
+              Intelligently handles and cleans up incomplete or failed media
+              uploads to maintain data integrity.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-sync-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Concurrent Processing <span class="text-medium">⚡</span>
+            </h3>
+            <p class="text-gray-700">
+              Optimize batch media operations like thumbnail regeneration with
+              concurrent processing for speed.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-sign-in-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Secure Admin Login <span class="text-medium">🔒</span>
+            </h3>
+            <p class="text-gray-700">
+              Dedicated and secure login portal for administrators to access
+              management features.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-lock text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Robust Session Control <span class="text-medium">⏳</span>
+            </h3>
+            <p class="text-gray-700">
+              Advanced session management with configurable age, `httpOnly`, and
+              `SameSite` attributes for security.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-fingerprint text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Password Hashing <span class="text-medium">🔑</span>
+            </h3>
+            <p class="text-gray-700">
+              Protects all user passwords with industry-standard bcrypt hashing,
+              never storing plain text.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-chart-line text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Admin Panel Dashboard <span class="text-medium">📊</span>
+            </h3>
+            <p class="text-gray-700">
+              Centralized overview of key site statistics, recent submissions,
+              and traffic trends.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-key text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Admin Password Change <span class="text-medium">🔄</span>
+            </h3>
+            <p class="text-gray-700">
+              Allows administrators to securely update their passwords via the
+              settings page.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-shield text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Initial Admin Seeding <span class="text-medium">👤</span>
+            </h3>
+            <p class="text-gray-700">
+              Automatic creation of a default admin user upon first database
+              initialization for quick setup.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-handshake text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Traffic Partners <span class="text-medium">🤝</span>
+            </h3>
+            <p class="text-gray-700">
+              Manage external sites for traffic exchange, fostering mutual
+              growth.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-chart-bar text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              In/Out Hit Tracking <span class="text-medium">📈</span>
+            </h3>
+            <p class="text-gray-700">
+              Accurately track both incoming and outgoing hits for precise
+              traffic insights.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-percentage text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Traffic Skim Control <span class="text-medium">🔪</span>
+            </h3>
+            <p class="text-gray-700">
+              Configurable percentage of outgoing traffic redirected to trade
+              partners.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-search-plus text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Detailed Traffic Logs <span class="text-medium">🔎</span>
+            </h3>
+            <p class="text-gray-700">
+              View comprehensive traffic logs, filterable by referrer, date, and
+              IP address.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-clock text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Unique Visitor Window <span class="text-medium">🕒</span>
+            </h3>
+            <p class="text-gray-700">
+              Configurable time window for precise unique visitor tracking and
+              reporting.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-ban text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Self-Referral Blocking <span class="text-medium">🚫</span>
+            </h3>
+            <p class="text-gray-700">
+              Prevents skewed traffic statistics by ignoring hits from your own
+              domain.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-satellite-dish text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Client-Side Activity Ping <span class="text-medium">📡</span>
+            </h3>
+            <p class="text-gray-700">
+              Frontend JavaScript pings update visitor `last_seen` timestamps,
+              enabling duration tracking.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-paper-plane text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Public Submission Form <span class="text-medium">✍️</span>
+            </h3>
+            <p class="text-gray-700">
+              Allows anonymous users to submit links with an accompanying image
+              for consideration.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-hourglass-half text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Pending Submissions <span class="text-medium">🕒</span>
+            </h3>
+            <p class="text-gray-700">
+              Admins can view and manage submitted content awaiting approval.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-gavel text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Submission Moderation <span class="text-medium">⚖️</span>
+            </h3>
+            <p class="text-gray-700">
+              Admins can approve, reject, or ban submissions, maintaining
+              content quality.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-image text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Submission Image Upload <span class="text-medium">📸</span>
+            </h3>
+            <p class="text-gray-700">
+              Users can upload images directly with their submissions, enhancing
+              content.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-slash text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Blacklist Integration <span class="text-medium">🛑</span>
+            </h3>
+            <p class="text-gray-700">
+              Automatically screens submissions against a blacklist to prevent
+              spam and abuse.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-lock text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              CSRF Protection <span class="text-medium">🔒</span>
+            </h3>
+            <p class="text-gray-700">
+              Implemented with `csurf` middleware for all state-changing
+              forms/APIs, preventing cross-site request forgeries.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-shield text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Login Rate Limiting <span class="text-medium">🛡️</span>
+            </h3>
+            <p class="text-gray-700">
+              Protects the admin login route against brute-force attacks with
+              configurable limits.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-user-ninja text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Blacklisting System <span class="text-medium">🚷</span>
+            </h3>
+            <p class="text-gray-700">
+              Add/delete domains and email addresses to prevent spam and abuse
+              effectively.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-mask text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Helmet Middleware <span class="text-medium">⛑️</span>
+            </h3>
+            <p class="text-gray-700">
+              Integrates various security HTTP headers including strict
+              Content-Security-Policy.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-certificate text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              HTTPS for Session Cookies <span class="text-medium">🌐</span>
+            </h3>
+            <p class="text-gray-700">
+              Enforces the `secure` flag for session cookies in production
+              environments for encrypted transmission.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-faucet text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              XSS Sanitization <span class="text-medium">🧼</span>
+            </h3>
+            <p class="text-gray-700">
+              Global input sanitization with whitelisting for admin-allowed HTML
+              to prevent cross-site scripting attacks.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-cog text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Global Settings Management <span class="text-medium">⚙️</span>
+            </h3>
+            <p class="text-gray-700">
+              Admins can configure site title, description, thumbnail settings,
+              and upload limits via the UI.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-th text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Thumbnail Sizing & Format <span class="text-medium">📏</span>
+            </h3>
+            <p class="text-gray-700">
+              Configure thumbnail width, height, format (JPEG, PNG, WebP), and
+              compression quality.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-upload text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Max Upload File Size <span class="text-medium">⬆️</span>
+            </h3>
+            <p class="text-gray-700">
+              Set maximum file size (in bytes) for all media uploads.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-shield-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Security Configuration <span class="text-medium">🛡️</span>
+            </h3>
+            <p class="text-gray-700">
+              Adjust login rate limits, session max age, and unique traffic
+              window for security and tracking.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-sync-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Sidebar Cache TTL <span class="text-medium">⏱️</span>
+            </h3>
+            <p class="text-gray-700">
+              Configurable duration (seconds) for caching public sidebar content
+              to reduce database load.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-code text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Node.js/Express Backend <span class="text-medium">💻</span>
+            </h3>
+            <p class="text-gray-700">
+              Built on a modern JavaScript development stack for high
+              performance and scalability.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-file-code text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              EJS View Engine <span class="text-medium">📄</span>
+            </h3>
+            <p class="text-gray-700">
+              Simple and flexible templating engine for dynamic content
+              rendering.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-palette text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Tailwind CSS <span class="text-medium">🎨</span>
+            </h3>
+            <p class="text-gray-700">
+              Utility-first CSS framework for rapid and consistent styling
+              across the application.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-align-left text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Prettier Formatting <span class="text-medium">✨</span>
+            </h3>
+            <p class="text-gray-700">
+              Ensures consistent and readable code style across the entire
+              codebase.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-comment-dots text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              JSDoc Commenting <span class="text-medium">📝</span>
+            </h3>
+            <p class="text-gray-700">
+              Extensive and detailed documentation for all JavaScript files,
+              enhancing maintainability.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-sitemap text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Modular Architecture <span class="text-medium">🧩</span>
+            </h3>
+            <p class="text-gray-700">
+              Organized controllers and routes split into smaller,
+              feature-specific files for clarity.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-bug text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Async Error Handling <span class="text-medium">🛑</span>
+            </h3>
+            <p class="text-gray-700">
+              Uses `express-async-handler` to centralize error reporting and
+              prevent crashes.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-database text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              SQLite Database <span class="text-medium">🗄️</span>
+            </h3>
+            <p class="text-gray-700">
+              Lightweight, file-based database for easy setup and management.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-rocket text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Application Startup Init <span class="text-medium">🚀</span>
+            </h3>
+            <p class="text-gray-700">
+              Critical setup occurs before server starts listening, ensuring
+              stability.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-redo-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Cache Busting <span class="text-medium">♻️</span>
+            </h3>
+            <p class="text-gray-700">
+              Dynamic versioning for JavaScript assets ensures fresh files after
+              deployments.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-memory text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Sidebar Caching <span class="text-medium">💨</span>
+            </h3>
+            <p class="text-gray-700">
+              In-memory caching with configurable TTL reduces database load for
+              public sidebar data.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-bolt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Concurrency Limiting <span class="text-medium">⚡</span>
+            </h3>
+            <p class="text-gray-700">
+              Uses `p-limit` for bulk operations, preventing server overload
+              during intensive tasks.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-layer-group text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Separation of Concerns <span class="text-medium">🗂️</span>
+            </h3>
+            <p class="text-gray-700">
+              Clear distinction between configuration, models, controllers,
+              services, middleware, and utilities.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-random text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Random Post Navigation <span class="text-medium">🎲</span>
+            </h3>
+            <p class="text-gray-700">
+              Promotes content discovery with a 'Random' link, redirecting users
+              to an unexpected post.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-star text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              "Chosen Ones" Widget <span class="text-medium">⭐</span>
+            </h3>
+            <p class="text-gray-700">
+              Displays up to 8 unique featured posts in a randomized 2x2
+              thumbnail grid in the sidebar.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-th-list text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              "Featured Content" List <span class="text-medium">📜</span>
+            </h3>
+            <p class="text-gray-700">
+              Presents up to 5 unique featured posts as a randomized text list
+              in the sidebar.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-trophy text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Top Partners Widget <span class="text-medium">🏆</span>
+            </h3>
+            <p class="text-gray-700">
+              Leaderboard displaying traffic exchange partners ranked by inbound
+              hits in the sidebar.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-ad text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Sponsor Ads Widget <span class="text-medium">📢</span>
+            </h3>
+            <p class="text-gray-700">
+              Rotation of active banner advertisements displayed prominently in
+              the sidebar.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-link text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Friends/Links Widget <span class="text-medium">🔗</span>
+            </h3>
+            <p class="text-gray-700">
+              A static list of friendly sites or external links conveniently
+              located in the sidebar.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-cloud text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Dynamic Tag Cloud <span class="text-medium">☁️</span>
+            </h3>
+            <p class="text-gray-700">
+              Visually weighted display of popular tags with randomized order
+              for aesthetic variety and discovery.
+            </p>
+          </div>
+
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-bell text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Flash Messages <span class="text-medium">🔔</span>
+            </h3>
+            <p class="text-gray-700">
+              Provides clear user feedback (success/error) via transient
+              messages displayed in the header.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-check-square text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Client-Side Validation <span class="text-medium">✅</span>
+            </h3>
+            <p class="text-gray-700">
+              Immediate user feedback for form inputs, improving data entry
+              accuracy and speed.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-sliders-h text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Dynamic Admin Post Form <span class="text-medium">🎚️</span>
+            </h3>
+            <p class="text-gray-700">
+              Interactive forms for post creation/editing, dynamically
+              showing/hiding fields based on content type.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-eye text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Image/Video Previews <span class="text-medium">👀</span>
+            </h3>
+            <p class="text-gray-700">
+              Client-side previews for image/video file uploads in admin forms
+              for immediate feedback.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-window-restore text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Confirmation Modals <span class="text-medium">💬</span>
+            </h3>
+            <p class="text-gray-700">
+              Standardized, visually integrated modals for critical admin
+              actions requiring user confirmation.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-image text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Image Fallbacks <span class="text-medium">🖼️</span>
+            </h3>
+            <p class="text-gray-700">
+              Generic placeholder images are displayed when specific content
+              images are missing, maintaining visual integrity.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-closed-captioning text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              SEO `alt` Text <span class="text-medium">🔡</span>
+            </h3>
+            <p class="text-gray-700">
+              Descriptive `alt` attributes for all images, improving
+              accessibility and search engine optimization.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-microchip text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Schema.org Microdata <span class="text-medium">🔍</span>
+            </h3>
+            <p class="text-gray-700">
+              Structured data markup for posts (Article, VideoObject,
+              ImageObject) for rich snippets and search engine understanding.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-mobile-alt text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Responsive Design <span class="text-medium">📱</span>
+            </h3>
+            <p class="text-gray-700">
+              Implemented with Tailwind CSS for optimal viewing across various
+              devices and screen sizes.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-universal-access text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Accessibility (ARIA) <span class="text-medium">♿</span>
+            </h3>
+            <p class="text-gray-700">
+              WAI-ARIA attributes added to pagination and interactive elements
+              for enhanced screen reader support.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-spinner text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Loading Indicators <span class="text-medium">⏳</span>
+            </h3>
+            <p class="text-gray-700">
+              Visual loaders for AJAX operations provide clear feedback during
+              data processing.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-star text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Favicon & Touch Icons <span class="text-medium">✨</span>
+            </h3>
+            <p class="text-gray-700">
+              Improved branding and user experience with custom favicons and
+              touch icons for all devices.
+            </p>
+          </div>
+          <div
+            class="bg-light p-6 border-4 border-dark shadow-monolith brutal-item-hover transition duration-200"
+          >
+            <div
+              class="bg-dark p-4 inline-block mb-4 border-2 border-dark shadow-monolith"
+            >
+              <i class="fas fa-hourglass-start text-3xl text-light"></i>
+            </div>
+            <h3 class="text-xl font-extrabold mb-2 uppercase tracking-wide">
+              Web Font Preloading <span class="text-medium">⏱️</span>
+            </h3>
+            <p class="text-gray-700">
+              Optimizes loading of Font Awesome and other web fonts for faster
+              page rendering.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="cta"
+        class="bg-dark p-12 md:p-16 border-8 border-dark shadow-monolith-lg text-center mt-20"
+      >
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-light uppercase tracking-tighter mb-8 leading-tight border-b-4 border-medium pb-4"
+        >
+          Deploy. Control. Dominate.
+        </h2>
+        <p
+          class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 border-l-4 border-medium pl-4"
+        >
+          Babelogger delivers the raw power you need for content, traffic, and
+          security. No compromises.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-6">
+          <a
+            href="https://demo.babelogger.com"
+            target="_blank"
+            class="inline-block bg-light text-dark font-extrabold py-5 px-10 text-xl brutal-btn uppercase"
+          >
+            View Demo <i class="fas fa-wrench ml-3"></i>
+          </a>
+          <a
+            href="https://github.com/chrismccoy/babelogger"
+            target="_blank"
+            class="inline-block bg-medium text-light font-extrabold py-5 px-10 text-xl brutal-btn uppercase"
+          >
+            View on GitHub <i class="fab fa-github ml-3"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-light py-10 border-t-8 border-dark">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-sm text-gray-400">
+          &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Babelogger. All rights reserved.
+        </p>
+        <div class="flex justify-center space-x-6 mt-4">
+          <a
+            href="https://github.com/chrismccoy/babelogger"
+            target="_blank"
+            class="text-gray-400 hover:text-white brutal-btn p-2"
+            ><i class="fab fa-github text-lg"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
